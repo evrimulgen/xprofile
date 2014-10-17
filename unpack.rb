@@ -38,10 +38,11 @@ begin
 		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class"`
 	else
 		puts "\nunpack.rb"
-		puts "Usage:  ruby unpack.rb [option(s)] [filename(s)]"
+		puts "Usage:  ./unpack.rb [option(s)] [filename(s)]"
 		puts "Options:\n\t-o\t - Open .apk file \t| --open [filepath]"
 		puts "\t-l\t - Lexical analysis \t| --lex [filepath]"
 		puts "\t-a\t - Decompile .apk \t| --apk [filepath]"
+                puts "\nClean dirs with 'rake clean'\n\n"
   end
 rescue => err
   puts err
