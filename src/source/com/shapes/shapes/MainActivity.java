@@ -126,19 +126,21 @@ public class MainActivity extends Activity
         }
     }
 
-    public void about_click(MenuItem menuitem)
+    public boolean about_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/About);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
-    public void help_click(MenuItem menuitem)
+    public boolean help_click()
     {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(URL));
         startActivity(intent);
+        return true;
     }
 
     protected void onCreate(Bundle bundle)
@@ -435,7 +437,33 @@ public class MainActivity extends Activity
         return true;
     }
 
-    public void options_click(MenuItem menuitem)
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        boolean flag = true;
+        switch(menuitem.getItemId())
+        {
+        default:
+            flag = super.onOptionsItemSelected(menuitem);
+            // fall through
+
+        case 2131361880: 
+            return flag;
+
+        case 2131361882: 
+            help_click();
+            return flag;
+
+        case 2131361883: 
+            about_click();
+            return flag;
+
+        case 2131361881: 
+            options_click();
+            return flag;
+        }
+    }
+
+    public boolean options_click()
     {
         EditText edittext = (EditText)findViewById(0x7f0a0032);
         EditText edittext1 = (EditText)findViewById(0x7f0a0031);
@@ -474,6 +502,7 @@ public class MainActivity extends Activity
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     public void search_click(View view)

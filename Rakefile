@@ -1,3 +1,3 @@
 task :clean do
-  `rm -rf ./tmp`
+  `rm -rf ./tmp/* ./src/*`
 end

@@ -164,12 +164,13 @@ public class AnalyzeColumn extends Activity
         return flag;
     }
 
-    public void about_click(MenuItem menuitem)
+    public boolean about_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/About);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     public void analyze_click(View view)
@@ -265,19 +266,21 @@ _L15:
         edittext3.setText("0");
     }
 
-    public void help_click(MenuItem menuitem)
+    public boolean help_click()
     {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(MainActivity.URL));
         startActivity(intent);
+        return true;
     }
 
-    public void home_click(MenuItem menuitem)
+    public boolean home_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/MainActivity);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     protected void onCreate(Bundle bundle)
@@ -466,17 +469,42 @@ _L15:
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(0x7f090003, menu);
+        getMenuInflater().inflate(0x7f090004, menu);
         return true;
     }
 
-    public void options_click(MenuItem menuitem)
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        switch(menuitem.getItemId())
+        {
+        default:
+            return super.onOptionsItemSelected(menuitem);
+
+        case 2131361880: 
+            return home_click();
+
+        case 2131361882: 
+            help_click();
+            return true;
+
+        case 2131361883: 
+            about_click();
+            return true;
+
+        case 2131361881: 
+            options_click();
+            return true;
+        }
+    }
+
+    public boolean options_click()
     {
         Options.previous = com/shapes/shapes/AnalyzeColumn;
         Intent intent = new Intent(this, com/shapes/shapes/Options);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     public void showDialog(Context context, String s)

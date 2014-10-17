@@ -1,4 +1,4 @@
-!#/usr/bin/ruby
+#!/usr/bin/ruby
 
 require 'getoptlong'
 
@@ -13,13 +13,13 @@ begin
   case opt
     when "-o"
 		puts "\n-> Extracting dex from .apk file ..."
-		`unzip #{arg} -d./tmp`		
+		`unzip -o #{arg} -d./tmp`		
 		puts "-> Converting to .jar, 'dex2jar' ...\n\n"
 		`./lib/dex2jar-0.0.9.15/d2j-dex2jar.sh ./tmp/classes.dex -o ./tmp/classes.jar`		
 		puts "\n-> Extracting class files ..."
-		`unzip ./tmp/classes.jar -d./src/classes`
-		puts "\n-> Decompiling source files from .jar ...\n\n"
-		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class"`
+		`unzip -o ./tmp/classes.jar -d./src/classes`
+		puts "\n-> Decompiling source files from .jar ...\n"
+		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class" 2>&1 | tee log`
 		puts "\n-> Performing lexical analysis ... \n\n"
 		`rm -rf ./src/source/android/`
 		`ruby ./lexer/main.rb ./src/source/*/*/*/*.java`

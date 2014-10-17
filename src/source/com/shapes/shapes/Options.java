@@ -103,12 +103,13 @@ public class Options extends Activity
         }
     }
 
-    public void about_click(MenuItem menuitem)
+    public boolean about_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/About);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     public void button_click(View view)
@@ -116,27 +117,27 @@ public class Options extends Activity
         changed = true;
     }
 
-    public void help_click(MenuItem menuitem)
+    public boolean help_click()
     {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(MainActivity.URL));
         startActivity(intent);
+        return true;
     }
 
-    public void home_click(MenuItem menuitem)
+    public boolean home_click()
     {
         if(changed)
         {
             confirm(this, com/shapes/shapes/MainActivity);
-            return;
         } else
         {
             Intent intent = new Intent(this, com/shapes/shapes/MainActivity);
             intent.setFlags(0x4000000);
             startActivity(intent);
             overridePendingTransition(0x7f040001, 0x7f040000);
-            return;
         }
+        return true;
     }
 
     public void onBackPressed()
@@ -532,8 +533,34 @@ public class Options extends Activity
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(0x7f090005, menu);
+        getMenuInflater().inflate(0x7f090004, menu);
         return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        boolean flag = true;
+        switch(menuitem.getItemId())
+        {
+        default:
+            flag = super.onOptionsItemSelected(menuitem);
+            // fall through
+
+        case 2131361881: 
+            return flag;
+
+        case 2131361880: 
+            return home_click();
+
+        case 2131361882: 
+            help_click();
+            return flag;
+
+        case 2131361883: 
+            about_click();
+            break;
+        }
+        return flag;
     }
 
     public void restore_defaults(View view)

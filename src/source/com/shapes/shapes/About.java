@@ -21,19 +21,21 @@ public class About extends Activity
     {
     }
 
-    public void help_click(MenuItem menuitem)
+    public boolean help_click()
     {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(MainActivity.URL));
         startActivity(intent);
+        return true;
     }
 
-    public void home_click(MenuItem menuitem)
+    public boolean home_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/MainActivity);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 
     protected void onCreate(Bundle bundle)
@@ -62,15 +64,41 @@ public class About extends Activity
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(0x7f090000, menu);
+        getMenuInflater().inflate(0x7f090004, menu);
         return true;
     }
 
-    public void options_click(MenuItem menuitem)
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        boolean flag = true;
+        switch(menuitem.getItemId())
+        {
+        default:
+            flag = super.onOptionsItemSelected(menuitem);
+            // fall through
+
+        case 2131361883: 
+            return flag;
+
+        case 2131361880: 
+            return home_click();
+
+        case 2131361882: 
+            help_click();
+            return flag;
+
+        case 2131361881: 
+            options_click();
+            return flag;
+        }
+    }
+
+    public boolean options_click()
     {
         Intent intent = new Intent(this, com/shapes/shapes/Options);
         intent.setFlags(0x4000000);
         startActivity(intent);
         overridePendingTransition(0x7f040001, 0x7f040000);
+        return true;
     }
 }
