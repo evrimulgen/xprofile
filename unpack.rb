@@ -22,20 +22,22 @@ begin
 		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class" 2>&1 | tee log`
 		puts "-> Performing lexical analysis ...\n\n"
 		`rm -rf ./src/source/android/`
-		`ruby ./lexer/main.rb ./src/source/*/*/*/*.java`
+		Dir.foreach "/src/source/*/*/*/*.java" do |f|
+		  `ruby ./lexer/main.rb #{f}`
+		end
 	when "-l"
-		puts "\n-> Performing lexical analysis ..."
+		puts "\n-> Performing lexical analysis ...\n\n"
 		`rm -rf ./src/source/android/`
 		`ruby ./lexer/main.rb ./src/source/*/*/*/*.java`
 	when "-a"
 		puts "\n-> Extracting dex from .apk file ..."
-		`unzip #{arg} -d./tmp`		
+		`unzip -o #{arg} -d./tmp`		
 		puts "-> Converting to .jar, 'dex2jar' ..."
 		`./lib/dex2jar-0.0.9.15/d2j-dex2jar.sh ./tmp/classes.dex -o ./tmp/classes.jar 2>&1 | tee log`		
-		puts "\n-> Extracting class files ..."
-		`unzip ./tmp/classes.jar -d./src/classes`
-		puts "\n-> Decompiling source files from .jar ..."
-		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class"`
+		puts "-> Extracting class files ..."
+		`unzip -o ./tmp/classes.jar -d./src/classes`
+		puts "-> Decompiling source files from .jar ...\n\n"
+		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class" 2>&1 | tee log`
 	else
 		puts "\nunpack.rb"
 		puts "Usage:  ./unpack.rb [option(s)] [filename(s)]"
