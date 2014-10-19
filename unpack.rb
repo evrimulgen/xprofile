@@ -22,7 +22,7 @@ begin
 		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class" 2>&1 | tee log`
 		puts "-> Performing lexical analysis ...\n\n"
 		`rm -rf ./src/source/android/`
-		Dir.foreach "/src/source/*/*/*/*.java" do |f|
+		Dir.glob "./src/source/*/*/*/*.java" do |f|
 		  `ruby ./lexer/main.rb #{f}`
 		end
 	when "-l"
