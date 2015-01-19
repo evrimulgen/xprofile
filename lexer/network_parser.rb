@@ -1,4 +1,6 @@
-# parser.rb
+#!/usr/bin/ruby
+# NetworkParser
+# scan file for network packages
 
 dir = File.dirname(__FILE__)
 require "#{dir}/scanner.rb"

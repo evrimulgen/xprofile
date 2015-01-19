@@ -28,7 +28,10 @@ begin
 			`ruby ./lexer/sweep.rb #{f}`
 		end
 	when "-l"
-		puts "\n-> Performing lexical analysis ...\n\n"
+		# perform static analysis
+		puts "\n-> Analyzing Android GUI Objects ..."
+		#`gator specific commands`
+		puts "-> Performing lexical analysis ...\n\n"
 		`rm -rf #{arg}/source/android/`
 		Dir.glob "#{arg}/source/*/*/*/*.java" do |f|
 			print `ruby ./lexer/sweep.rb #{f}`

@@ -1,4 +1,4 @@
 log
 tmp/*
 src/*
-scan_output.txt
+lexer/scan_output.xml
