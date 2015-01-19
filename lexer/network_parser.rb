@@ -3,11 +3,11 @@
 dir = File.dirname(__FILE__)
 require "#{dir}/scanner.rb"
 
-class Parser
-  @next = {}   
+class NetworkParser
+  @next = {}
   @package_list = []
 
-  def initialize(filename)  	
+  def initialize(filename, f)
     @scanner = Scanner.new(filename)
     @package_list = Regexp.union([
       /android.net.Uri/,
@@ -16,12 +16,12 @@ class Parser
       /java.nio.*/,
       /org.apache.http.*/
     ])
+    @file = f
   end
 
   def next!
-    @next = @scanner.get_next_token 
-    abort if @next['lexeme'] == "EOF"
-    # puts @next
+    @next = @scanner.get_next_token
+    @next = nil if @next['lexeme'] == "EOF"
   end
 
   def check(token_class, lexeme)
@@ -36,17 +36,17 @@ class Parser
     puts "=> Parse error [line #{@scanner.line}, col #{@scanner.col}]:  \"invalid #{str}\" for token '#{@next['lexeme']}'."
   end
 
-  def start
+  def start(filename)
     next!
-    package 
+    package(filename)
   end
-  
-  def package
-    until @next.nil?	
+
+  def package(filename)
+    until @next.nil?
       next!
       if check_for_packages
-        puts "Found #{@next['lexeme']} package."	
+        @file.puts("\t<package name=\"#{@next['lexeme']}\"/>")
       end
     end
-  end  
+  end
 end

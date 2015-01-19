@@ -1,1 +1,4 @@
 log
+tmp/*
+src/*
+scan_output.txt
