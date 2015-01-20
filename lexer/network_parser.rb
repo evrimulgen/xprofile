@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-# NetworkParser
+# network_parser.rb
 # scan file for network packages
 
 dir = File.dirname(__FILE__)
@@ -38,12 +38,12 @@ class NetworkParser
     puts "=> Parse error [line #{@scanner.line}, col #{@scanner.col}]:  \"invalid #{str}\" for token '#{@next['lexeme']}'."
   end
 
-  def start(filename)
+  def start
     next!
-    package(filename)
+    package
   end
 
-  def package(filename)
+  def package
     until @next.nil?
       next!
       if check_for_packages
