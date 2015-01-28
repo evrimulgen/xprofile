@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:text="I-Search" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <TextView android:id="@id/website" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/URL" android:layout_below="@id/textView3" android:layout_centerHorizontal="true" />
+    <TextView android:id="@id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/copyright" android:layout_below="@id/textView1" android:layout_centerHorizontal="true" />
+    <TextView android:id="@id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="version 1.1.1" android:layout_below="@id/textView2" android:layout_centerHorizontal="true" />
+    <TextView android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="Structurx, LLC" android:layout_below="@id/textView5" android:layout_centerHorizontal="true" />
+</RelativeLayout>

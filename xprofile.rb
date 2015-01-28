@@ -22,11 +22,22 @@ begin
 		puts "-> Decompiling source files from .jar ..."
 		`./lib/jad -o -r -sjava -d./src/source "./src/classes/**/*.class" 2>&1 | tee log`
 		puts "-> Performing lexical analysis ...\n\n"
+		`./lib/gator-1.2/apk-preprocess-tool/scripts/convert.sh #{arg} 2>&1 | tee log`
+		`mv /var/folders/k3/d682tjf94q75t_bncs2gqs3w0000gn/T/output* ./tmp/output`
+
+		# - gator
+		ANDROID_SDK = '~/Development/android-sdk-macosx/'
+		something = 'testforEclipseProject'
+		`SootAndroidOptions="-client GUIHierarchyPrinterClient" ./lib/gator-1.2/SootAndroid/scripts/guiAnalysis.sh ./lib/gator-1.2/AndroidBench/ #{ANDROID_SDK} ./tmp/output/#{something}/ android-17 output`
+
+		# - static analysis
 		`rm -rf ./src/source/android/`
 		# *** check for subdirectories ***
 		Dir.glob "./src/source/*/*/*/*.java" do |f|
 			`ruby ./lexer/sweep.rb #{f}`
 		end
+
+		puts "Process completed."
 	when "-l"
 		# perform static analysis
 		puts "\n-> Analyzing Android GUI Objects ..."
@@ -49,9 +60,9 @@ begin
 	else
 		puts "\nxprofile.rb"
 		puts "Usage:  ./xprofile.rb [option(s)] [filename(s)]"
-		puts "Options:\n\ \ -p\ \  - Profile Android .apk \ \ \ \ \ \ |\ \ --open [apk-filepath]"
+		puts "Options:\n\ \ -p\ \  - Profile Android .apk \ \ \ \ \ \ |\ \ --profile [apk-filepath]"
 		puts "\ \ -l\ \  - Use lexical analyzer \ \ \ \ \ \ |\ \ --lex [src-dir]"
-		puts "\ \ -s\ \  - Decompile .apk to source \ \ |\ \ --apk [apk-filepath]"
+		puts "\ \ -s\ \  - Decompile .apk to source \ \ |\ \ --src [apk-filepath]"
 		puts "\nClean project with 'rake clean'\n\n"
 	end
 rescue => err

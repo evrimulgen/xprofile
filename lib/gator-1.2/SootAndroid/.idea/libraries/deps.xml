@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="deps">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/deps/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/deps/android-17-stubs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/deps/annotations.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

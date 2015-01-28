@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SootAndroid">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/guava-14.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/soot-01092014.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

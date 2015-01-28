@@ -1,0 +1,19 @@
+Soot started on Tue Oct 07 14:02:33 EDT 2014
+Warning: java.lang.ref.Finalizer is a phantom class!
+Warning: com.android.internal.telephony.gsm.GSMPhone$1 is a phantom class!
+Warning: com.google.android.maps.MapActivity is a phantom class!
+Warning: com.google.android.maps.GeoPoint is a phantom class!
+Warning: com.google.android.maps.MapView is a phantom class!
+Warning: com.google.android.maps.MyLocationOverlay is a phantom class!
+Warning: com.google.android.maps.MapController is a phantom class!
+Warning: com.google.android.maps.ItemizedOverlay is a phantom class!
+Warning: com.google.android.maps.OverlayItem is a phantom class!
+[Stat] #Classes: 4324, #AppClasses: 51
+[HIER] All classes: 4324 [App: 51, Lib : 4264, Phantom: 9]
+[HIER] Activities: 2, lib activities: 3
+[HIER] App views: 0, Lib views: 33
+[HIER] App Dialogs: 0, Lib Dialogs: 7
+[GUIAnalysis] Start
+[XML] Layout Ids: 121, Menu Ids: 1, Widget Ids: 554, String Ids: 71
+[XML] MainActivity: eu.tanov.android.sptn.LocationView
+[1;31m[DEBUG] Debug file at `/tmp/apv-DEBUG-5824776666530832096.txt'.[0m

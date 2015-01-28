@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shapes.shapes">
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/title_activity_main" android:theme="@style/AppTheme">
+        <activity android:label="@string/title_activity_main" android:name="com.shapes.shapes.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_options" android:name="com.shapes.shapes.Options" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_results_list" android:name="com.shapes.shapes.ResultsList" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_analyze" android:name="com.shapes.shapes.Analyze" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_analyze_column" android:name="com.shapes.shapes.AnalyzeColumn" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_analyze_beam2" android:name="com.shapes.shapes.AnalyzeBeam2" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_about" android:name="com.shapes.shapes.About"/>
+    </application>
+</manifest>

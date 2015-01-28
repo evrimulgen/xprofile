@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="294.0dip" android:layout_height="200.0dip"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textColor="@color/black" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="30.0dip" android:text="Live Load (psf) = " android:layout_below="@id/textView1" android:layout_alignParentLeft="true" />
+        <TextView android:textColor="@color/black" android:id="@id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="Tributary Width = " android:layout_below="@id/textView2" android:layout_alignLeft="@id/textView2" />
+        <EditText android:textSize="16.0dip" android:id="@id/calc_live_load" android:layout_width="55.0dip" android:layout_height="wrap_content" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:maxLength="3" android:digits="0123456789" android:layout_alignBaseline="@id/textView2" android:layout_alignLeft="@id/calc_dead_load" android:layout_alignBottom="@id/textView2" android:inputType="textNoSuggestions" />
+        <TextView android:textColor="@color/black" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dead Load (psf) = " android:layout_alignLeft="@id/textView2" android:layout_alignBottom="@id/editText1" />
+        <EditText android:id="@id/calc_trib_width" android:layout_width="65.0dip" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:digits="@string/characters" android:layout_alignBaseline="@id/textView3" android:layout_alignLeft="@id/calc_live_load" android:layout_alignBottom="@id/textView3" android:layout_alignParentRight="true" android:inputType="textNoSuggestions" />
+        <EditText android:textSize="16.0dip" android:id="@id/calc_dead_load" android:layout_width="55.0dip" android:layout_height="wrap_content" android:layout_marginLeft="28.0dip" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:maxLength="3" android:digits="0123456789" android:layout_toRightOf="@id/textView1" android:layout_alignParentTop="true" android:inputType="textNoSuggestions">
+            <requestFocus />
+        </EditText>
+    </RelativeLayout>
+</ScrollView>

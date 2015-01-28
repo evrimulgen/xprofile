@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/init" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0px" android:layout_height="0.0px">
+        <requestFocus />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/Container02" android:background="@drawable/layout_border" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/TextView01" android:layout_alignLeft="@id/TextView01" android:layout_alignRight="@id/Container01">
+        <FrameLayout android:id="@id/FrameLayout04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <EditText android:textSize="12.0sp" android:textColor="@color/white" android:textColorHint="@color/white" android:gravity="right|center" android:id="@id/top_flange" android:background="@drawable/rounded_edittext" android:paddingRight="4.0dip" android:layout_width="100.0dip" android:layout_height="30.0dip" android:layout_marginTop="0.0dip" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:maxLength="15" android:digits="@string/characters" android:inputType="textNoSuggestions" android:imeOptions="actionNext" android:nextFocusForward="@id/bottom_flange" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/FrameLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:id="@id/TextView04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:text="@string/top_flange" />
+        </FrameLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/Container01" android:background="@drawable/layout_border" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/textView1" android:layout_alignLeft="@id/clear" android:layout_alignRight="@id/analyze">
+        <FrameLayout android:id="@id/FrameLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:id="@id/textView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/main_span" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/FrameLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignTop="@id/FrameLayout02" android:layout_alignParentRight="true">
+            <EditText android:textSize="12.0sp" android:textColor="@color/white" android:textColorHint="@color/white" android:gravity="right|center" android:id="@id/main_span" android:background="@drawable/rounded_edittext" android:paddingRight="4.0dip" android:layout_width="100.0dip" android:layout_height="30.0dip" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:maxLength="15" android:digits="@string/characters" android:inputType="textNoSuggestions" android:imeOptions="actionNext" android:nextFocusForward="@id/right_cantilever" />
+        </FrameLayout>
+    </RelativeLayout>
+    <TextView android:textSize="10.0sp" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fully_braced" android:layout_below="@id/Container02" android:layout_alignRight="@id/Container02" />
+    <RelativeLayout android:id="@id/RelativeLayout01" android:background="@drawable/layout_border" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/textView3" android:layout_alignLeft="@id/Container02" android:layout_alignRight="@id/analyze">
+        <FrameLayout android:id="@id/FrameLayout05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <FrameLayout android:id="@id/FrameLayout06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:id="@id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:text="@string/yield_strength" />
+        </FrameLayout>
+        <EditText android:textSize="12.0sp" android:textColor="@color/white" android:textColorHint="@color/white" android:gravity="right|center" android:id="@id/yield_strength" android:background="@drawable/rounded_edittext" android:paddingRight="4.0dip" android:layout_width="95.0dip" android:layout_height="30.0dip" android:ems="10" android:singleLine="true" android:selectAllOnFocus="true" android:maxLength="15" android:digits="0123456789" android:layout_toLeftOf="@id/FrameLayout05" android:layout_centerVertical="true" android:inputType="textNoSuggestions" android:imeOptions="actionDone" />
+    </RelativeLayout>
+    <Button android:textSize="16.0sp" android:textColor="@color/black" android:id="@id/analyze" android:background="@drawable/rounded_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="25.0dip" android:layout_marginBottom="15.0dip" android:text="Next" android:width="80.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:onClick="next_click" />
+    <Button android:textSize="16.0sp" android:textColor="@color/black" android:id="@id/clear" android:background="@drawable/rounded_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:text="Clear" android:width="80.0dip" android:layout_alignBaseline="@id/analyze" android:layout_alignBottom="@id/analyze" android:layout_alignParentLeft="true" android:onClick="clear_click" />
+    <TextView android:textSize="18.0sp" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="Span" android:layout_alignLeft="@id/Container01" android:layout_alignParentTop="true" />
+    <TextView android:textSize="18.0sp" android:id="@id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="29.0dip" android:text="@string/unbraced" android:layout_below="@id/Container01" android:layout_alignLeft="@id/Container01" />
+    <TextView android:textSize="18.0sp" android:id="@id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dip" android:text="@string/material_properties" android:layout_below="@id/textView2" android:layout_alignLeft="@id/RelativeLayout01" />
+</RelativeLayout>
