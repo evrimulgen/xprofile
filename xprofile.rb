@@ -31,11 +31,19 @@ begin
 		`SootAndroidOptions="-client GUIHierarchyPrinterClient" ./lib/gator-1.2/SootAndroid/scripts/guiAnalysis.sh ./lib/gator-1.2/AndroidBench/ #{ANDROID_SDK} ./tmp/output/#{something}/ android-17 output`
 
 		# - static analysis
+		f = File.open('./lexer/scan_output.xml', 'a')
+		f.puts('<output>')
+		f.close()
+
 		`rm -rf ./src/source/android/`
 		# *** check for subdirectories ***
 		Dir.glob "./src/source/*/*/*/*.java" do |f|
 			`ruby ./lexer/sweep.rb #{f}`
 		end
+
+		f = File.open('./lexer/scan_output.xml', 'a')
+		f.puts('</output>')
+		f.close()
 
 		puts "Process completed."
 	when "-l"
